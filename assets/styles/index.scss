@@ -1,1 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+#sign-container {
+  display: flex;
+  justify-content: center;
+}
