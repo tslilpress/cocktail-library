@@ -15,8 +15,7 @@ const onSignInSuccess = function (res) {
   store.user = res.user
   $('#message').text(`Thanks for signing in ${res.user.email}!`)
   $('#sign-in-form').trigger('reset')
-  $('#change-password').show()
-  $('#sign-out-form').show()
+  $('.navbar').show()
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
 }
@@ -40,7 +39,6 @@ const onSignOutSuccess = function (res) {
   $('#message').text('You signed out!')
   $('#change-password').hide()
   $('#sign-out-form').hide()
-  $('#sign-in-form').show()
   $('#sign-up-form').show()
 }
 
