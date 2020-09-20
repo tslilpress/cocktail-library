@@ -1,8 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
+body {
+  background-image: url('https://i.imgur.com/VJzPH1R.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.modal-body, .modal-title {
+  color: rgb(0, 0, 0);
+}
+
+
+h1, h4 {
   text-align: center;
 }
+
 
 p {
   text-align: center;

@@ -12,53 +12,123 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <nav class="navbar navbar-light bg-light">
-        <form class="form-inline" id="change-password">
-          <input id="old-password" class="form-control mr-sm-2" type="password" name="passwords[old]" placeholder="old password">
-          <input id="new-password" class="form-control mr-sm-2" type="password" name="passwords[new]" placeholder="new password">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Change</button>
-        </form>
-        <form class="form-inline" id="sign-out-form">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Out</button>
-        </form>
-      </nav>
-      <h1>The Cocktail Library</h1>
-      <p id="message"></p>
-      <div id="sign-container">
-        <form id="sign-up-form">
-          <h3>Sign Up</h3>
-          <div class="form-group">
-            <label for="sign-up-email">Your email</label>
-            <input type="email" class="form-control" id="sign-up-email" name="credentials[email]" >
+      <main id="overlay">
+        <nav class="navbar navbar-light bg-light">
+          <form class="form-inline" id="change-password">
+            <input id="old-password" class="form-control mr-sm-2" type="password" name="passwords[old]" placeholder="old password">
+            <input id="new-password" class="form-control mr-sm-2" type="password" name="passwords[new]" placeholder="new password">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Change</button>
+          </form>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-cocktail-modal">
+            Add new cocktail
+          </button>
+          <!-- Button trigger modal -->
+          <button id="get-all-cocktails" type="button" class="btn btn-primary" data-toggle="modal" data-target="#all-cocktails-modal">
+            My cocktails
+          </button>
+          <form class="form-inline" id="sign-out-form">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Out</button>
+          </form>
+        </nav>
+        <h1>The Cocktail Library</h1>
+        <p id="message"></p>
+        <div id="sign-container">
+          <form id="sign-up-form">
+            <h3>Sign Up</h3>
+            <div class="form-group">
+              <label for="sign-up-email">Your email</label>
+              <input type="email" class="form-control" id="sign-up-email" name="credentials[email]" >
+            </div>
+            <div class="form-group">
+              <label for="sign-up-password">Password</label>
+              <input type="password" class="form-control" id="sign-up-password" name="credentials[password]">
+            </div>
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+              <input type="password" class="form-control" id="confirm-password" name="credentials[password_confirmation]">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <div id='in-button'>
+              <br>
+              <p>Already a member?</p>
+              <button type="button" class="btn btn-primary">Sign In</button>
+            </div>
+          </form>
+          <form id="sign-in-form">
+            <h3>Sign In</h3>
+            <div class="form-group">
+              <label for="sign-in-email">Your email</label>
+              <input type="email" class="form-control" id="sign-in-email" name="credentials[email]" >
+            </div>
+            <div class="form-group">
+              <label for="sign-in-password">Password</label>
+              <input type="password" class="form-control" id="sign-in-password" name="credentials[password]">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <!-- New Cocktail Modal -->
+        <div class="modal fade" id="new-cocktail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">New Cocktail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="create-cocktail">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="cocktail[name]"  placeholder="ex. Manhattan">
+                  </div>
+                  <div class="form-group">
+                    <label for="preparation">Preparation</label>
+                    <input type="text" class="form-control" id="preparation" name="cocktail[preparation]" placeholder="ex. Stirred">
+                  </div>
+                  <div class="form-group">
+                    <label for="serve-in">Serve In</label>
+                    <input type="text" class="form-control" id="Served-in" name="cocktail[serveIn]" placeholder="ex. Coupe">
+                  </div>
+                  <div class="form-group">
+                    <label for="how-to-serve">How to serve</label>
+                    <input type="text" class="form-control" id="how-to-serve" name="cocktail[howToServe]" placeholder="ex. Up">
+                  </div>
+                  <div class="form-group">
+                    <label for="garnish">Garnish</label>
+                    <input type="text" class="form-control" id="garnish" name="cocktail[garnish]" placeholder="ex. Orange twist">
+                  </div>
+                  <div class="form-group">
+                    <label for="note">Note</label>
+                    <input type="text" class="form-control" id="note" name="cocktail[note]" placeholder="ex. Chill well">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <p id="new-cocktail-message"></p>
+                </form>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="sign-up-password">Password</label>
-            <input type="password" class="form-control" id="sign-up-password" name="credentials[password]">
+        </div>
+        <!-- All Cocktails Modal -->
+        <div class="modal fade" id="all-cocktails-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="all-cocktails-title">My Cocktails</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="all-cocktails-content">
+                  <p id="all-cocktails-err-message"></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" class="form-control" id="confirm-password" name="credentials[password_confirmation]">
-          </div>
-          <button type="submit" class="btn btn-primary">Sign Up</button>
-          <div id='in-button'>
-            <br>
-            <p>Already a member?</p>
-            <button type="submit" class="btn btn-primary">Sign In</button>
-          </div>
-        </form>
-        <form id="sign-in-form">
-          <h3>Sign In</h3>
-          <div class="form-group">
-            <label for="sign-in-email">Your email</label>
-            <input type="email" class="form-control" id="sign-in-email" name="credentials[email]" >
-          </div>
-          <div class="form-group">
-            <label for="sign-in-password">Password</label>
-            <input type="password" class="form-control" id="sign-in-password" name="credentials[password]">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-
-    </body>
+        </div>
+      </main>
+   </body>
 </html>

@@ -59,9 +59,6 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutFailure)
 }
 
-// const onInButton = function (event) {
-//   $('#sign-in-form').show()
-// }
 
 module.exports = {
   onSignUp,
