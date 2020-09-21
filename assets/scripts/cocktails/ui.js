@@ -3,19 +3,6 @@ const store = require('./../store')
 const onCreateCocktailSuccess = function (res) {
   $('#create-cocktail').trigger('reset')
   $('#new-cocktail-message').text('Great! Your new cocktail was created!')
-  // const cocktail = res.cocktail
-  // const cocktailHTML = (`
-  //   <div>
-  //     <h4>${cocktail.name}</h4>
-  //     <p>Preparation: ${cocktail.preparation}</p>
-  //     <p>Serve in: ${cocktail.serveIn}</p>
-  //     <p>How to serve : ${cocktail.howToServe}</p>
-  //     <p>Garnis: ${cocktail.garnish}</p>
-  //     <p>Note: ${cocktail.note}</p>
-  //     <p>ID: ${cocktail._id}</p>
-  //   </div>
-  //   `)
-  // $('#cocktail-created').html(cocktailHTML)
   console.log(res.cocktail)
   console.log(res.cocktail._id)
 }
@@ -33,7 +20,8 @@ const onGetAllCocktailsSuccess = function (res) {
         <p>Preparation: ${cocktail.preparation}</p>
         <p>Serve in: ${cocktail.serveIn}</p>
         <p>How to serve : ${cocktail.howToServe}</p>
-        <p>Garnis: ${cocktail.garnish}</p>
+        <p>Garnish: ${cocktail.garnish}</p>
+        <p>ingredients: ${cocktail.ingredients}</p>
         <p>Note: ${cocktail.note}</p>
         <p>ID: ${cocktail._id}</p>
       </div>

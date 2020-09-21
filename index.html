@@ -99,15 +99,19 @@
                     <label for="garnish">Garnish</label>
                     <input type="text" class="form-control" id="garnish" name="cocktail[garnish]" placeholder="ex. Orange twist">
                   </div>
+                  <div class="form-group">
+                    <label for="ingredients">Ingredients</label>
+                    <input type="text" class="form-control" id="ingredients" name="cocktail[ingredients]" placeholder="ex. Rye whiskey(2oz), Sweet vermouth(1oz)">
+                  </div>
                   <div id="last-input" class="form-group">
                     <label for="note">Note</label>
                     <input type="text" class="form-control" id="note" name="cocktail[note]" placeholder="ex. Chill well">
                   </div>
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-ingredients-modal">
+                  <!-- <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#add-ingredients-modal">
                     Add ingredients
-                  </button>
-                  <button type="submit" class="btn btn-primary">Save cocktail</button>
+                  </button> -->
+                  <button type="submit" class="btn btn-dark">Save cocktail</button>
                   <p id="new-cocktail-message"></p>
                 </form>
               </div>
@@ -132,7 +136,8 @@
             </div>
           </div>
         </div>
-        <div class="modal fade" id="add-ingredients-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <!-- add ingredient madal -->
+        <!-- <div class="modal fade" id="add-ingredients-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -140,9 +145,8 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
-              </div>
-              <!-- add ingredient madal -->
-              <div class="modal-body">
+              </div> -->
+              <!-- <div class="modal-body">
                 <form id="add-ingredients-form">
                   <div class="form-group">
                     <label for="add-ingredient">Ingredient</label>
@@ -159,9 +163,9 @@
                   <button id="done-ingredient" type="submit" class="btn btn-primary">Done</button>
                   <p id="add-ingredient-message"></p>
                 </form>
-              </div>
-            </div>
+              </div> -->
+            <!-- </div>
           </div>
-        </div>
+        </div> -->
    </body>
 </html>

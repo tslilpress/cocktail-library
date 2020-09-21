@@ -22,5 +22,5 @@ $(() => {
   })
   $('#create-cocktail').on('submit', cocktailsEvents.onCreateCocktail)
   $('#get-all-cocktails').on('click', cocktailsEvents.handleGetAllCocktails)
-  $('#add-ingredients-form').on('submit', ingredientsEvents.onCreateIngredient)
+  // $('#add-ingredients-form').on('submit', ingredientsEvents.onCreateIngredient)
 })
