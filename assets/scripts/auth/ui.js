@@ -13,9 +13,11 @@ const onSignUpFailure = function (err) {
 
 const onSignInSuccess = function (res) {
   store.user = res.user
-  $('#message').text(`Thanks for signing in ${res.user.email}!`)
+  $('#message').text(`Welcome ${res.user.email}!`)
   $('#sign-in-form').trigger('reset')
-  $('.navbar').show()
+  $('.navbar').show(1000)
+  $('#change-password').show()
+  $('#sign-out-form').show()
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
 }
@@ -40,6 +42,7 @@ const onSignOutSuccess = function (res) {
   $('#change-password').hide()
   $('#sign-out-form').hide()
   $('#sign-up-form').show()
+  $('.navbar').hide(1000)
 }
 
 const onSignOutFailure = function (res) {

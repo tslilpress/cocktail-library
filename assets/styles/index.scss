@@ -1,10 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
-
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Parisienne&display=swap');
 body {
-  background-image: url('https://i.imgur.com/VJzPH1R.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  // background-image: url('https://i.imgur.com/VJzPH1R.jpg');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  background-color: rgb(0, 0, 0);
   color: white;
+  font-family: 'Cinzel', serif;
 }
 
 .modal-body, .modal-title {
@@ -24,4 +27,9 @@ p {
 #sign-container {
   display: flex;
   justify-content: center;
+}
+
+#title {
+  font-family: 'Parisienne', cursive;
+  font-size: 5rem;
 }
