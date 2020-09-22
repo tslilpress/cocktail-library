@@ -1,6 +1,7 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./../store')
 
 const onCreateCocktail = function (event) {
   event.preventDefault()
@@ -27,20 +28,49 @@ const handleGetAllCocktails = function (event) {
 const handleShowCocktail = function (event) {
   event.preventDefault()
 
-  console.log('event.target is', event.target)
+  // console.log('event.target is', event.target)
 
   const form = event.target
   const formData = getFormFields(form)
 
-  console.log('formData is', formData)
+  // console.log('formData is', formData)
 
   api.showCocktail(formData.cocktail.id)
     .then(ui.onShowCocktailSuccess)
     .catch(ui.onShowCocktailFailure)
 }
 
+const handleUpdateCocktail = function (event) {
+  event.preventDefault()
+  const form = event.target
+
+  const formData = getFormFields(form)
+
+  api.updateCocktail(formData)
+    .then(ui.onUpdateCocktailSuccess)
+    .catch(ui.onUpdateCocktailFailure)
+}
+
+
+const showUpdateForm = function (event) {
+  $('#update-cocktail').show()
+}
+// const updateCocktailSuccess = function (event) {
+//   console.log('data is', store.cocktail)
+//   event.preventDefault()
+//   const form = event.target
+//
+//   const formData = getFormFields(form)
+//
+//   api.updateCocktail(formData)
+//     .then(ui.onUpdateCocktailSuccess)
+//     .catch(ui.onUpdateCocktailFailure)
+// }
+
 module.exports = {
   onCreateCocktail,
   handleGetAllCocktails,
-  handleShowCocktail
+  handleShowCocktail,
+  handleUpdateCocktail,
+  showUpdateForm
 }

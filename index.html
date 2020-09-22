@@ -36,7 +36,7 @@
         </nav>
         <h1 id="title">The Cocktail Library</h1>
         <p id="message"></p>
-        <div id="sign-container">
+        <div class="overlay" id="sign-container">
           <form id="sign-up-form">
             <h3>Sign Up</h3>
             <div class="form-group">
@@ -131,7 +131,7 @@
                     <label for="ingredients">Ingredients</label>
                     <input type="text" class="form-control" id="ingredients" name="cocktail[ingredients]" placeholder="ex. Rye whiskey(2oz), Sweet vermouth(1oz)">
                   </div>
-                  <div id="last-input" class="form-group">
+                  <div class="form-group">
                     <label for="note">Note</label>
                     <input type="text" class="form-control" id="note" name="cocktail[note]" placeholder="ex. Chill well">
                   </div>
@@ -172,19 +172,49 @@
               </div>
               <div class="modal-body">
                 <p id="id-err"></p>
-                <div id="single-cocktail-content">
+                <p id="update-cocktail-message"></p>
+                <div id="single-cocktail-content"></div>
+                <div id="edit-delete-buttons">
+                  <button id="edit-btn" type="button" class="btn btn-dark">Edit</button>
+                  <input id="delete-btn" type="submit" class="btn btn-dark" data-dismiss="modal">Delete</button>
                 </div>
+                <br>
+                <form id="update-cocktail">
+                  <div class="form-group">
+                    <label for="update-name">Name</label>
+                    <input type="text" class="form-control" id="update-name" name="cocktail[name]"  placeholder="ex. Manhattan">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-preparation">Preparation</label>
+                    <input type="text" class="form-control" id="update-preparation" name="cocktail[preparation]" placeholder="ex. Stirred">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-serve-in">Serve In</label>
+                    <input type="text" class="form-control" id="update-Served-in" name="cocktail[serveIn]" placeholder="ex. Coupe">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-how-to-serve">How to serve</label>
+                    <input type="text" class="form-control" id="upadate-how-to-serve" name="cocktail[howToServe]" placeholder="ex. Up">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-garnish">Garnish</label>
+                    <input type="text" class="form-control" id="update-garnish" name="cocktail[garnish]" placeholder="ex. Orange twist">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-ingredients">Ingredients</label>
+                    <input type="text" class="form-control" id="update-ingredients" name="cocktail[ingredients]" placeholder="ex. Rye whiskey(2oz), Sweet vermouth(1oz)">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-note">Note</label>
+                    <input type="text" class="form-control" id="update-note" name="cocktail[note]" placeholder="ex. Chill well">
+                    <p id="update-id"></p>
+                  </div>
+                  <button id="update-button" type="submit" class="btn btn-dark">Update cocktail</button>
+                  <button  type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                </form>
               </div>
             </div>
           </div>
         </div>
-        <!-- <form class="form-inline" id="search-cocktail">
-          <input id="search" class="form-control mr-sm-2" type="text" name="cocktail[id]" placeholder="Cocktail ID"> -->
-          <!-- Button trigger modal search cocktails -->
-          <!-- <input id="show-cocktail" type="submit" value="find" class="btn btn-dark">
-        </form> -->
-        <!-- <div id="single-cocktail-content">
-          <p id="single-cocktail-err-message"></p>
-        </div> -->
    </body>
 </html>

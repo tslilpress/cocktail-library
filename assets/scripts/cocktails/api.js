@@ -33,8 +33,23 @@ const showCocktail = function (cocktailId) {
   })
 }
 
+const updateCocktail = function (formData) {
+  // console.log(cocktailId
+  const cocktailId = store.cocktail._id
+  // console.log('cocktail id is', cocktailId)
+  return $.ajax({
+    url: config.apiUrl + '/cocktails/' + `${cocktailId}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: formData
+  })
+}
+
 module.exports = {
   createCocktail,
   getAllCocktails,
-  showCocktail
+  showCocktail,
+  updateCocktail
 }

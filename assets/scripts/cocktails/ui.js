@@ -1,4 +1,5 @@
 const store = require('./../store')
+const cocktailApi = require('./api')
 
 const onCreateCocktailSuccess = function (res) {
   store.cocktail = res.cocktail
@@ -39,7 +40,7 @@ const onGetAllCocktailsError = function (err) {
 
 
 const onShowCocktailSuccess = function (res) {
-  // store.cocktail = res.cocktail
+  store.cocktail = res.cocktail
   console.log('res is', res)
   const cocktail = res.cocktail
   const cocktailHTML = (`
@@ -57,12 +58,42 @@ const onShowCocktailSuccess = function (res) {
   $('#id-err').text('')
   $('#single-cocktail-content').html(cocktailHTML)
   $('#search-cocktail').trigger('reset')
+  $('#edit-delete-buttons').show()
+  $('#update-cocktail').hide()
+  $('#update-name').attr('value', store.cocktail.name)
+  $('#update-preparation').attr('value', store.cocktail.preparation)
+  $('#update-Served-in').attr('value', store.cocktail.serveIn)
+  $('#upadate-how-to-serve').attr('value', store.cocktail.howToServe)
+  $('#update-garnish').attr('value', store.cocktail.garnish)
+  $('#update-ingredients').attr('value', store.cocktail.ingredients)
+  $('#update-note').attr('value', store.cocktail.note)
+  $('#update-id').text(`ID: ${store.cocktail._id}`)
+  $('#delete-btn').attr('name', store.cocktail._id)
 }
 
 const onShowCocktailFailure = function (err) {
   $('#search-cocktail').trigger('reset')
   $('#id-err').text('Please enter a valid Id')
   $('#single-cocktail-content').html('')
+  $('#update-cocktail').hide()
+  $('#edit-delete-buttons').hide()
+}
+
+const onUpdateCocktailSuccess = function (res) {
+  $('#update-cocktail-message').text('The cocktail has been updated')
+  $('#update-cocktail').hide()
+  $('#single-cocktail-content').html('')
+  $('#edit-delete-buttons').hide()
+  // console.log('res is ', res)
+  // console.log('data is ', store.cocktail)
+  // const id = store.cocktail._id
+  // cocktailApi.showCocktail(id)
+  //   .then(cocktailApi.updateCocktail(id))
+  //   .catch()
+}
+
+const onUpdateCocktailFailure = function (err) {
+  $('#update-cocktail-message').text('Oops, something went wrong. try again.')
 }
 
 module.exports = {
@@ -70,5 +101,6 @@ module.exports = {
   onCreateCocktailFailure,
   onGetAllCocktailsSuccess,
   onShowCocktailSuccess,
-  onShowCocktailFailure
+  onShowCocktailFailure,
+  onUpdateCocktailSuccess
 }

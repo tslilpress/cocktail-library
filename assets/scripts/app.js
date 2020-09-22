@@ -8,6 +8,7 @@ const cocktailsEvents = require('./cocktails/events')
 // require('./example')
 
 $(() => {
+  $('#update-cocktail').hide()
   $('#sign-in-form').hide()
   $('.navbar').hide()
   $('#sign-up-form').on('submit', authEvents.onSignUp)
@@ -24,4 +25,7 @@ $(() => {
   $('#create-cocktail').on('submit', cocktailsEvents.onCreateCocktail)
   $('#get-all-cocktails').on('click', cocktailsEvents.handleGetAllCocktails)
   $('#search-cocktail').on('submit', cocktailsEvents.handleShowCocktail)
+  $('#update-cocktail').on('submit', cocktailsEvents.handleUpdateCocktail)
+  $('#edit-btn').on('click', cocktailsEvents.showUpdateForm)
+  $('#delete-btn').on('submit', cocktailsEvents.handelDeleteCocktail)
 })
