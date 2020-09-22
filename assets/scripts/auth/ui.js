@@ -4,6 +4,7 @@ const onSignUpSuccess = function (res) {
   $('#sign-up-form').trigger('reset')
   $('#message').text(`Thanks for signing up ${res.user.email}! Sign in!`)
   $('#sign-up-form').hide()
+  $('#sign-in-form').show()
 }
 
 const onSignUpFailure = function (err) {

@@ -27,5 +27,5 @@ $(() => {
   $('#search-cocktail').on('submit', cocktailsEvents.handleShowCocktail)
   $('#update-cocktail').on('submit', cocktailsEvents.handleUpdateCocktail)
   $('#edit-btn').on('click', cocktailsEvents.showUpdateForm)
-  $('#delete-btn').on('submit', cocktailsEvents.handelDeleteCocktail)
+  $('#delete-btn').on('click', cocktailsEvents.handleDeleteCocktail)
 })

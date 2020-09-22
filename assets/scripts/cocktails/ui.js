@@ -1,5 +1,5 @@
 const store = require('./../store')
-const cocktailApi = require('./api')
+// const cocktailApi = require('./api')
 
 const onCreateCocktailSuccess = function (res) {
   store.cocktail = res.cocktail
@@ -56,6 +56,7 @@ const onShowCocktailSuccess = function (res) {
     </div>
     `)
   $('#id-err').text('')
+  $('#delete-message').text('')
   $('#single-cocktail-content').html(cocktailHTML)
   $('#search-cocktail').trigger('reset')
   $('#edit-delete-buttons').show()
@@ -68,12 +69,12 @@ const onShowCocktailSuccess = function (res) {
   $('#update-ingredients').attr('value', store.cocktail.ingredients)
   $('#update-note').attr('value', store.cocktail.note)
   $('#update-id').text(`ID: ${store.cocktail._id}`)
-  $('#delete-btn').attr('name', store.cocktail._id)
 }
 
 const onShowCocktailFailure = function (err) {
   $('#search-cocktail').trigger('reset')
   $('#id-err').text('Please enter a valid Id')
+  $('#delete-message').text('')
   $('#single-cocktail-content').html('')
   $('#update-cocktail').hide()
   $('#edit-delete-buttons').hide()
@@ -96,11 +97,19 @@ const onUpdateCocktailFailure = function (err) {
   $('#update-cocktail-message').text('Oops, something went wrong. try again.')
 }
 
+const onDeleteCocktailSuccess = function (res) {
+  $('#single-cocktail-content').html('')
+  $('#delete-message').text('Cocktail deleted')
+  $('#edit-delete-buttons').hide()
+}
+
+
 module.exports = {
   onCreateCocktailSuccess,
   onCreateCocktailFailure,
   onGetAllCocktailsSuccess,
   onShowCocktailSuccess,
   onShowCocktailFailure,
-  onUpdateCocktailSuccess
+  onUpdateCocktailSuccess,
+  onDeleteCocktailSuccess
 }

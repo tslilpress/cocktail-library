@@ -55,6 +55,17 @@ const handleUpdateCocktail = function (event) {
 const showUpdateForm = function (event) {
   $('#update-cocktail').show()
 }
+
+const handleDeleteCocktail = function (event) {
+  event.preventDefault()
+
+  // const formData = getFormFields(form)
+  // console.log('data is ', formData)
+  api.deleteCocktail(store.cocktail._id)
+    .then(ui.onDeleteCocktailSuccess)
+    .catch(ui.onDeleteCocktailFailure)
+}
+
 // const updateCocktailSuccess = function (event) {
 //   console.log('data is', store.cocktail)
 //   event.preventDefault()
@@ -72,5 +83,6 @@ module.exports = {
   handleGetAllCocktails,
   handleShowCocktail,
   handleUpdateCocktail,
-  showUpdateForm
+  showUpdateForm,
+  handleDeleteCocktail
 }
