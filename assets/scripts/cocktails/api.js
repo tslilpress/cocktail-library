@@ -22,7 +22,19 @@ const getAllCocktails = function () {
   })
 }
 
+const showCocktail = function (cocktailId) {
+  console.log(cocktailId)
+  return $.ajax({
+    url: config.apiUrl + '/cocktails/' + `${cocktailId}`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createCocktail,
-  getAllCocktails
+  getAllCocktails,
+  showCocktail
 }

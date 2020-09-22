@@ -13,19 +13,23 @@
     </head>
     <body>
         <nav class="navbar navbar-light bg-light">
-          <form class="form-inline" id="change-password">
-            <input id="old-password" class="form-control mr-sm-2" type="password" name="passwords[old]" placeholder="old password">
-            <input id="new-password" class="form-control mr-sm-2" type="password" name="passwords[new]" placeholder="new password">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Change Password</button>
-          </form>
-          <!-- Button trigger modal -->
+          <!-- Button trigger modal change password -->
+          <button id="change-pass-btn" type="button" class="btn btn-outline-dark my-2 my-sm-0" data-toggle="modal" data-target="#change-password-modal">
+            Change Password
+          </button>
+          <!-- Button trigger modal add new cocktail -->
           <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#new-cocktail-modal">
             Add new cocktail
           </button>
-          <!-- Button trigger modal -->
-          <button id="get-all-cocktails" type="button" class="btn btn-dark" data-toggle="modal" data-target="#all-cocktails-modal">
+          <!-- Button trigger modal my cocktails -->
+          <button id="get-all-cocktails" type="submit" class="btn btn-dark" data-toggle="modal" data-target="#all-cocktails-modal">
             My cocktails
           </button>
+          <form class="form-inline" id="search-cocktail">
+            <input id="search" class="form-control mr-sm-2" type="text" name="cocktail[id]" placeholder="Cocktail ID">
+            <!-- Button trigger modal search cocktails -->
+            <input id="show-cocktail" type="submit" value="Search" class="btn btn-dark" data-toggle="modal" data-target="#show-modal">
+          </form>
           <form class="form-inline" id="sign-out-form">
             <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Sign Out</button>
           </form>
@@ -67,6 +71,30 @@
             <button type="submit" class="btn btn-light">Sign In</button>
           </form>
         </div>
+        <!-- change password Modal -->
+        <div class="modal fade" id="change-password-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form class="form-inline" id="change-password">
+                  <input id="old-password" class="form-control mr-sm-2" type="password" name="passwords[old]" placeholder="old password">
+                  <input id="new-password" class="form-control mr-sm-2" type="password" name="passwords[new]" placeholder="new password">
+                  <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Change Password</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <p id="password-message"></p>
+                <button id="close-password" type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- New Cocktail Modal -->
         <div class="modal fade" id="new-cocktail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -107,11 +135,8 @@
                     <label for="note">Note</label>
                     <input type="text" class="form-control" id="note" name="cocktail[note]" placeholder="ex. Chill well">
                   </div>
-                  <!-- Button trigger modal -->
-                  <!-- <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#add-ingredients-modal">
-                    Add ingredients
-                  </button> -->
                   <button type="submit" class="btn btn-dark">Save cocktail</button>
+                  <button  type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                   <p id="new-cocktail-message"></p>
                 </form>
               </div>
@@ -136,36 +161,30 @@
             </div>
           </div>
         </div>
-          <!-- add ingredient madal -->
-        <!-- <div class="modal fade" id="add-ingredients-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <!-- Show cocktail Modal -->
+        <div class="modal fade" id="show-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="add-ingredients-title">Add ingredients</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
-              </div> -->
-              <!-- <div class="modal-body">
-                <form id="add-ingredients-form">
-                  <div class="form-group">
-                    <label for="add-ingredient">Ingredient</label>
-                    <input type="text" class="form-control" id="add-ingredient" name="ingredient[title]">
-                  </div>
-                  <div class="form-group">
-                    <label for="add-unit">Measurement unit</label>
-                    <input type="text" class="form-control" id="add-unit" name="ingredient[unit]">
-                  </div>
-                  <div class="form-group">
-                    <input type="hidden" class="form-control" id="cocktail-id" name="ingredient[cocktailId]">
-                  </div>
-                  <button id="save-ingredient" type="submit" class="btn btn-primary">Save and add another</button>
-                  <button id="done-ingredient" type="submit" class="btn btn-primary">Done</button>
-                  <p id="add-ingredient-message"></p>
-                </form>
-              </div> -->
-            <!-- </div>
+              </div>
+              <div class="modal-body">
+                <p id="id-err"></p>
+                <div id="single-cocktail-content">
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+        <!-- <form class="form-inline" id="search-cocktail">
+          <input id="search" class="form-control mr-sm-2" type="text" name="cocktail[id]" placeholder="Cocktail ID"> -->
+          <!-- Button trigger modal search cocktails -->
+          <!-- <input id="show-cocktail" type="submit" value="find" class="btn btn-dark">
+        </form> -->
+        <!-- <div id="single-cocktail-content">
+          <p id="single-cocktail-err-message"></p>
         </div> -->
    </body>
 </html>

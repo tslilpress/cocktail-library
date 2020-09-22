@@ -24,7 +24,23 @@ const handleGetAllCocktails = function (event) {
     .catch(ui.onGetAllCocktailsError)
 }
 
+const handleShowCocktail = function (event) {
+  event.preventDefault()
+
+  console.log('event.target is', event.target)
+
+  const form = event.target
+  const formData = getFormFields(form)
+
+  console.log('formData is', formData)
+
+  api.showCocktail(formData.cocktail.id)
+    .then(ui.onShowCocktailSuccess)
+    .catch(ui.onShowCocktailFailure)
+}
+
 module.exports = {
   onCreateCocktail,
-  handleGetAllCocktails
+  handleGetAllCocktails,
+  handleShowCocktail
 }

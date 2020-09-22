@@ -28,12 +28,12 @@ const onSignInFailure = function (err) {
 }
 
 const onChangePasswordSuccess = function (res) {
-  $('#message').text('Password changed!')
+  $('#password-message').text('Password changed!')
   $('#change-password').trigger('reset')
 }
 
 const onChangePasswordFailure = function (res) {
-  $('#message').text('Oops something went wrong, Try again.')
+  $('#password-message').text('Oops something went wrong, Try again.')
   $('#change-password').trigger('reset')
 }
 

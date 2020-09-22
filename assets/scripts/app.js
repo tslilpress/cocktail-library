@@ -1,8 +1,6 @@
 'use strict'
 const authEvents = require('./auth/events')
 const cocktailsEvents = require('./cocktails/events')
-const ingredientsEvents = require('./ingredients/events')
-
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -15,6 +13,9 @@ $(() => {
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#change-pass-btn').on('click', function () {
+    ('#password-message').text()
+  })
   $('#sign-out-form').on('submit', authEvents.onSignOut)
   $('#in-button').on('click', function () {
     $('#sign-up-form').hide(500)
@@ -22,5 +23,5 @@ $(() => {
   })
   $('#create-cocktail').on('submit', cocktailsEvents.onCreateCocktail)
   $('#get-all-cocktails').on('click', cocktailsEvents.handleGetAllCocktails)
-  // $('#add-ingredients-form').on('submit', ingredientsEvents.onCreateIngredient)
+  $('#search-cocktail').on('submit', cocktailsEvents.handleShowCocktail)
 })
