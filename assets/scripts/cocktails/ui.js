@@ -101,6 +101,7 @@ const onDeleteCocktailSuccess = function (res) {
   $('#single-cocktail-content').html('')
   $('#delete-message').text('Cocktail deleted')
   $('#edit-delete-buttons').hide()
+  $('#update-cocktail-message').text('')
 }
 
 
