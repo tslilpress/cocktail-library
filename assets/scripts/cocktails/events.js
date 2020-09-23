@@ -52,10 +52,6 @@ const handleUpdateCocktail = function (event) {
 }
 
 
-const showUpdateForm = function (event) {
-  $('#update-cocktail').show()
-}
-
 const handleDeleteCocktail = function (event) {
   event.preventDefault()
 
@@ -64,6 +60,14 @@ const handleDeleteCocktail = function (event) {
   api.deleteCocktail(store.cocktail._id)
     .then(ui.onDeleteCocktailSuccess)
     .catch(ui.onDeleteCocktailFailure)
+}
+
+const showUpdateForm = function (event) {
+  $('#update-cocktail').show()
+}
+
+const onClosePass = function (event) {
+  ('#password-message').text()
 }
 
 // const updateCocktailSuccess = function (event) {
@@ -84,5 +88,6 @@ module.exports = {
   handleShowCocktail,
   handleUpdateCocktail,
   showUpdateForm,
-  handleDeleteCocktail
+  handleDeleteCocktail,
+  onClosePass
 }

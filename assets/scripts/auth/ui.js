@@ -16,10 +16,10 @@ const onSignInSuccess = function (res) {
   store.user = res.user
   $('#message').text(`Welcome ${res.user.email}!`)
   $('#sign-in-form').trigger('reset')
-  $('.navbar').show(1000)
+  $('.navbar').show(700)
   $('#change-password').show()
   $('#sign-out-form').show()
-  $('#sign-in-form').hide()
+  $('#sign-in-form').hide(700)
   $('#sign-up-form').hide()
 }
 

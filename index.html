@@ -36,7 +36,7 @@
         </nav>
         <h1 id="title">The Cocktail Library</h1>
         <p id="message"></p>
-        <div class="overlay" id="sign-container">
+        <div id="sign-container">
           <form id="sign-up-form">
             <h3>Sign Up</h3>
             <div class="form-group">
@@ -69,6 +69,11 @@
               <input type="password" class="form-control" id="sign-in-password" name="credentials[password]">
             </div>
             <button type="submit" class="btn btn-light">Sign In</button>
+            <div id='up-button'>
+              <br>
+              <p>Still need to sign up?</p>
+              <button type="button" class="btn btn-light">Sign Up</button>
+            </div>
           </form>
         </div>
         <!-- change password Modal -->
@@ -137,6 +142,7 @@
                   </div>
                   <button type="submit" class="btn btn-dark">Save cocktail</button>
                   <button  type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                  <br>
                   <p id="new-cocktail-message"></p>
                 </form>
               </div>
@@ -157,6 +163,7 @@
                 <div id="all-cocktails-content">
                   <p id="all-cocktails-err-message"></p>
                 </div>
+                <button  type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>

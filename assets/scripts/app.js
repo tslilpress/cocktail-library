@@ -8,20 +8,22 @@ const cocktailsEvents = require('./cocktails/events')
 // require('./example')
 
 $(() => {
+  $('#in-button').on('click', function () {
+    $('#sign-up-form').hide(500)
+    $('#sign-in-form').show(500)
+  })
+  $('#up-button').on('click', function () {
+    $('#sign-up-form').show(500)
+    $('#sign-in-form').hide(500)
+  })
+  $('#change-pass-btn').on('click', authEvents.onClosePass)
   $('#update-cocktail').hide()
   $('#sign-in-form').hide()
   $('.navbar').hide()
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
-  $('#change-pass-btn').on('click', function () {
-    ('#password-message').text()
-  })
   $('#sign-out-form').on('submit', authEvents.onSignOut)
-  $('#in-button').on('click', function () {
-    $('#sign-up-form').hide(500)
-    $('#sign-in-form').show(500)
-  })
   $('#create-cocktail').on('submit', cocktailsEvents.onCreateCocktail)
   $('#get-all-cocktails').on('click', cocktailsEvents.handleGetAllCocktails)
   $('#search-cocktail').on('submit', cocktailsEvents.handleShowCocktail)
