@@ -5,7 +5,7 @@ place. Created using Javascript, JQuery and Bootstrap.
 
 ## Important links
 [Server side app repo on git hub](https://github.com/tslilpress/cocktail-library-server) ----
-[Server side app site on heroku](https://mysterious-wildwood-12374.herokuapp.com)
+[Server side app site on heroku]( https://mysterious-wildwood-12374.herokuapp.com
 
 ## Planning Story
 After finishing my API part for this app I started creating this part of the application which is the
@@ -41,4 +41,3 @@ for the ingredients so they could be edited separately.
 
 ### Wireframe 
 
-![Cocktail app wireframe](https://user-images.githubusercontent.com/68870466/94375922-13862000-00e5-11eb-8c30-da6bc5520f48.jpg)
