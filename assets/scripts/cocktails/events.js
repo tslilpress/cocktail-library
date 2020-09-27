@@ -64,10 +64,12 @@ const handleDeleteCocktail = function (event) {
 
 const showUpdateForm = function (event) {
   $('#update-cocktail').show()
+  $('#new-cocktail-head').hide()
 }
 
-const onClosePass = function (event) {
-  ('#password-message').text()
+const showAddNewForm = function (event) {
+  $('#create-cocktail').show()
+  $('#new-cocktail-head').show()
 }
 
 // const updateCocktailSuccess = function (event) {
@@ -89,5 +91,5 @@ module.exports = {
   handleUpdateCocktail,
   showUpdateForm,
   handleDeleteCocktail,
-  onClosePass
+  showAddNewForm
 }

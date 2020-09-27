@@ -9,6 +9,9 @@ const onSignUpSuccess = function (res) {
 
 const onSignUpFailure = function (err) {
   $('#message').text('Oops, something went wrong. Try again.')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 5000)
   $('#sign-up-form').trigger('reset')
 }
 
@@ -25,21 +28,34 @@ const onSignInSuccess = function (res) {
 
 const onSignInFailure = function (err) {
   $('#message').text('Oops, something went wrong. Try again.')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 5000)
   $('#sign-in-form').trigger('reset')
 }
 
 const onChangePasswordSuccess = function (res) {
   $('#password-message').text('Password changed!')
   $('#change-password').trigger('reset')
+  setTimeout(() => {
+    $('#password-message').text('')
+  }, 2000)
 }
 
 const onChangePasswordFailure = function (res) {
   $('#password-message').text('Oops something went wrong, Try again.')
   $('#change-password').trigger('reset')
+  setTimeout(() => {
+    $('#password-message').text('')
+  }, 2000)
 }
 
 const onSignOutSuccess = function (res) {
   $('#message').text('You signed out!')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 5000)
+  $('#sign-up-form').trigger('reset')
   $('#change-password').hide()
   $('#sign-out-form').hide()
   $('#sign-up-form').show()

@@ -16,7 +16,6 @@ $(() => {
     $('#sign-up-form').show(500)
     $('#sign-in-form').hide(500)
   })
-  $('#change-pass-btn').on('click', authEvents.onClosePass)
   $('#update-cocktail').hide()
   $('#sign-in-form').hide()
   $('.navbar').hide()
@@ -30,4 +29,5 @@ $(() => {
   $('#update-cocktail').on('submit', cocktailsEvents.handleUpdateCocktail)
   $('#edit-btn').on('click', cocktailsEvents.showUpdateForm)
   $('#delete-btn').on('click', cocktailsEvents.handleDeleteCocktail)
+  $('#add-new-btn').on('click', cocktailsEvents.showAddNewForm)
 })

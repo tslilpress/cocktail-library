@@ -18,7 +18,7 @@
             Change Password
           </button>
           <!-- Button trigger modal add new cocktail -->
-          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#new-cocktail-modal">
+          <button id="add-new-btn" type="button" class="btn btn-dark" data-toggle="modal" data-target="#new-cocktail-modal">
             Add new cocktail
           </button>
           <!-- Button trigger modal my cocktails -->
@@ -105,7 +105,7 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">New Cocktail</h5>
+                <h5 class="modal-title" id="new-cocktail-head">New Cocktail</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -137,14 +137,14 @@
                     <input type="text" class="form-control" id="ingredients" name="cocktail[ingredients]" placeholder="ex. Rye whiskey(2oz), Sweet vermouth(1oz)">
                   </div>
                   <div class="form-group">
-                    <label for="note">Note</label>
+                    <label for="note">Note(Optional)</label>
                     <input type="text" class="form-control" id="note" name="cocktail[note]" placeholder="ex. Chill well">
                   </div>
                   <button type="submit" class="btn btn-dark">Save cocktail</button>
                   <button  type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                   <br>
-                  <p id="new-cocktail-message"></p>
                 </form>
+                <p id="new-cocktail-message"></p>
               </div>
             </div>
           </div>

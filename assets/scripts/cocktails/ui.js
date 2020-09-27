@@ -4,13 +4,18 @@ const store = require('./../store')
 const onCreateCocktailSuccess = function (res) {
   store.cocktail = res.cocktail
   $('#create-cocktail').trigger('reset')
-  $('#new-cocktail-message').text('Great! Your new cocktail was created!')
+  $('#new-cocktail-message').text('Your new cocktail was created! Go to My Cocktails to view')
+  setTimeout(() => {
+    $('#new-cocktail-message').text('')
+  }, 5000)
+  $('#create-cocktail').hide()
+  $('#new-cocktail-head').hide()
   // console.log(res.cocktail)
   // console.log(res.cocktail._id)
 }
 
 const onCreateCocktailFailure = function (res) {
-  $('#new-cocktail-message').text('oops, Something went wrong. Try again.')
+  $('#new-cocktail-message').text('Please fill out all required fields')
 }
 
 const onGetAllCocktailsSuccess = function (res) {
@@ -61,6 +66,7 @@ const onShowCocktailSuccess = function (res) {
   $('#search-cocktail').trigger('reset')
   $('#edit-delete-buttons').show()
   $('#update-cocktail').hide()
+  $('#update-cocktail-message').text('')
   $('#update-name').attr('value', store.cocktail.name)
   $('#update-preparation').attr('value', store.cocktail.preparation)
   $('#update-Served-in').attr('value', store.cocktail.serveIn)
@@ -78,6 +84,7 @@ const onShowCocktailFailure = function (err) {
   $('#single-cocktail-content').html('')
   $('#update-cocktail').hide()
   $('#edit-delete-buttons').hide()
+  $('#update-cocktail-message').text('')
 }
 
 const onUpdateCocktailSuccess = function (res) {
@@ -85,12 +92,6 @@ const onUpdateCocktailSuccess = function (res) {
   $('#update-cocktail').hide()
   $('#single-cocktail-content').html('')
   $('#edit-delete-buttons').hide()
-  // console.log('res is ', res)
-  // console.log('data is ', store.cocktail)
-  // const id = store.cocktail._id
-  // cocktailApi.showCocktail(id)
-  //   .then(cocktailApi.updateCocktail(id))
-  //   .catch()
 }
 
 const onUpdateCocktailFailure = function (err) {
