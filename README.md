@@ -38,4 +38,3 @@ I would like to eventually make it possible for a user to search by any key in t
 for the ingredients so they could be edited separately.
 
 ### Wireframe
-
