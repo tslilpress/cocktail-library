@@ -40,3 +40,5 @@ I would like to eventually make it possible for a user to search by any key in t
 for the ingredients so they could be edited separately.
 
 ### Wireframe 
+
+![Cocktail app wireframe](https://user-images.githubusercontent.com/68870466/94375922-13862000-00e5-11eb-8c30-da6bc5520f48.jpg)
