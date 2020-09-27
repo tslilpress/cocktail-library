@@ -4,8 +4,6 @@ A single page application that allows you to store and edit your cocktail recipe
 place. Created using Javascript, JQuery and Bootstrap.
 
 ## Important links
-[Server side app repo on git hub](https://github.com/tslilpress/cocktail-library-server)
-[Server side app site on heroku]( https://mysterious-wildwood-12374.herokuapp.com
 
 ## Planning Story
 After finishing my API part for this app I started creating this part of the application which is the
@@ -39,5 +37,5 @@ of my time tweaking some small bugs and cleaning up my code and UI.
 I would like to eventually make it possible for a user to search by any key in the cocktail object, for example by name of cocktail, ingredients or even by the garnish. I would also like to use a separate form
 for the ingredients so they could be edited separately.
 
-### Wireframe 
+### Wireframe
 
