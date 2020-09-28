@@ -16,6 +16,9 @@ const onCreateCocktailSuccess = function (res) {
 
 const onCreateCocktailFailure = function (res) {
   $('#new-cocktail-message').text('Please fill out all required fields')
+  setTimeout(() => {
+    $('#new-cocktail-message').text('')
+  }, 5000)
 }
 
 const onGetAllCocktailsSuccess = function (res) {
