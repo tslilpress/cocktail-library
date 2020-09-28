@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Cocktail-Library</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+          <!-- Button trigger modal change password -->
+          <button id="change-pass-btn" type="button" class="btn btn-outline-dark my-2 my-sm-0" data-toggle="modal" data-target="#change-password-modal">
+            Change Password
+          </button>
+          <!-- Button trigger modal add new cocktail -->
+          <button id="add-new-btn" type="button" class="btn btn-dark" data-toggle="modal" data-target="#new-cocktail-modal">
+            Add new cocktail
+          </button>
+          <!-- Button trigger modal my cocktails -->
+          <button id="get-all-cocktails" type="submit" class="btn btn-dark" data-toggle="modal" data-target="#all-cocktails-modal">
+            My cocktails
+          </button>
+          <form class="form-inline" id="search-cocktail">
+            <input id="search" class="form-control mr-sm-2" type="text" name="cocktail[id]" placeholder="Cocktail ID">
+            <!-- Button trigger modal search cocktails -->
+            <input id="show-cocktail" type="submit" value="Search" class="btn btn-dark" data-toggle="modal" data-target="#show-modal">
+          </form>
+          <form class="form-inline" id="sign-out-form">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Sign Out</button>
+          </form>
+        </nav>
+        <h1 id="title">The Cocktail Library</h1>
+        <p id="message"></p>
+        <div id="sign-container">
+          <form id="sign-up-form">
+            <h3>Sign Up</h3>
+            <div class="form-group">
+              <label for="sign-up-email">Your email</label>
+              <input type="email" class="form-control" id="sign-up-email" name="credentials[email]" >
+            </div>
+            <div class="form-group">
+              <label for="sign-up-password">Password</label>
+              <input type="password" class="form-control" id="sign-up-password" name="credentials[password]">
+            </div>
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+              <input type="password" class="form-control" id="confirm-password" name="credentials[password_confirmation]">
+            </div>
+            <button type="submit" class="btn btn-light">Sign Up</button>
+            <div id='in-button'>
+              <br>
+              <p>Already a member?</p>
+              <button type="button" class="btn btn-light">Sign In</button>
+            </div>
+          </form>
+          <form id="sign-in-form">
+            <h3>Sign In</h3>
+            <div class="form-group">
+              <label for="sign-in-email">Your email</label>
+              <input type="email" class="form-control" id="sign-in-email" name="credentials[email]" >
+            </div>
+            <div class="form-group">
+              <label for="sign-in-password">Password</label>
+              <input type="password" class="form-control" id="sign-in-password" name="credentials[password]">
+            </div>
+            <button type="submit" class="btn btn-light">Sign In</button>
+            <div id='up-button'>
+              <br>
+              <p>Still need to sign up?</p>
+              <button type="button" class="btn btn-light">Sign Up</button>
+            </div>
+          </form>
+        </div>
+        <!-- change password Modal -->
+        <div class="modal fade" id="change-password-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form class="form-inline" id="change-password">
+                  <input id="old-password" class="form-control mr-sm-2" type="password" name="passwords[old]" placeholder="old password">
+                  <input id="new-password" class="form-control mr-sm-2" type="password" name="passwords[new]" placeholder="new password">
+                  <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Change Password</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <p id="password-message"></p>
+                <button id="close-password" type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- New Cocktail Modal -->
+        <div class="modal fade" id="new-cocktail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="new-cocktail-head">New Cocktail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div id="cocktail-created" class="modal-body">
+                <form id="create-cocktail">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="cocktail[name]"  placeholder="ex. Manhattan">
+                  </div>
+                  <div class="form-group">
+                    <label for="preparation">Preparation</label>
+                    <input type="text" class="form-control" id="preparation" name="cocktail[preparation]" placeholder="ex. Stirred">
+                  </div>
+                  <div class="form-group">
+                    <label for="serve-in">Serve In</label>
+                    <input type="text" class="form-control" id="Served-in" name="cocktail[serveIn]" placeholder="ex. Coupe">
+                  </div>
+                  <div class="form-group">
+                    <label for="how-to-serve">How to serve</label>
+                    <input type="text" class="form-control" id="how-to-serve" name="cocktail[howToServe]" placeholder="ex. Up">
+                  </div>
+                  <div class="form-group">
+                    <label for="garnish">Garnish</label>
+                    <input type="text" class="form-control" id="garnish" name="cocktail[garnish]" placeholder="ex. Orange twist">
+                  </div>
+                  <div class="form-group">
+                    <label for="ingredients">Ingredients</label>
+                    <input type="text" class="form-control" id="ingredients" name="cocktail[ingredients]" placeholder="ex. Rye whiskey(2oz), Sweet vermouth(1oz)">
+                  </div>
+                  <div class="form-group">
+                    <label for="note">Note(Optional)</label>
+                    <input type="text" class="form-control" id="note" name="cocktail[note]" placeholder="ex. Chill well">
+                  </div>
+                  <button type="submit" class="btn btn-dark">Save cocktail</button>
+                  <button  type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                  <br>
+                </form>
+                <p id="new-cocktail-message"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- All Cocktails Modal -->
+        <div class="modal fade" id="all-cocktails-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="all-cocktails-title">My Cocktails</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="all-cocktails-content">
+                  <p id="all-cocktails-err-message"></p>
+                </div>
+                <button  type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Show cocktail Modal -->
+        <div class="modal fade" id="show-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p id="id-err"></p>
+                <p id="delete-message"></p>
+                <p id="update-cocktail-message"></p>
+                <div id="single-cocktail-content"></div>
+                <div id="edit-delete-buttons">
+                  <button id="edit-btn" type="button" class="btn btn-dark">Edit</button>
+                  <input id="delete-btn" type="submit" value="delete" class="btn btn-dark">
+                </div>
+                <br>
+                <form id="update-cocktail">
+                  <div class="form-group">
+                    <label for="update-name">Name</label>
+                    <input type="text" class="form-control" id="update-name" name="cocktail[name]"  placeholder="ex. Manhattan">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-preparation">Preparation</label>
+                    <input type="text" class="form-control" id="update-preparation" name="cocktail[preparation]" placeholder="ex. Stirred">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-serve-in">Serve In</label>
+                    <input type="text" class="form-control" id="update-Served-in" name="cocktail[serveIn]" placeholder="ex. Coupe">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-how-to-serve">How to serve</label>
+                    <input type="text" class="form-control" id="upadate-how-to-serve" name="cocktail[howToServe]" placeholder="ex. Up">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-garnish">Garnish</label>
+                    <input type="text" class="form-control" id="update-garnish" name="cocktail[garnish]" placeholder="ex. Orange twist">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-ingredients">Ingredients</label>
+                    <input type="text" class="form-control" id="update-ingredients" name="cocktail[ingredients]" placeholder="ex. Rye whiskey(2oz), Sweet vermouth(1oz)">
+                  </div>
+                  <div class="form-group">
+                    <label for="update-note">Note</label>
+                    <input type="text" class="form-control" id="update-note" name="cocktail[note]" placeholder="ex. Chill well">
+                    <p id="update-id"></p>
+                  </div>
+                  <button id="update-button" type="submit" class="btn btn-dark">Update cocktail</button>
+                  <button  type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+   </body>
+</html>
